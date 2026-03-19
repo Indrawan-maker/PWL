@@ -49,6 +49,7 @@ class Router
     {
         [$controllerName, $action] = explode('@', $handler);
 
+
         $controllerFile = BASE_PATH . '/app/Controllers/' . $controllerName . '.php';
 
         if (!file_exists($controllerFile)) {
@@ -57,6 +58,7 @@ class Router
             return;
         }
 
+        
         require_once $controllerFile;
 
         if (!class_exists($controllerName)) {

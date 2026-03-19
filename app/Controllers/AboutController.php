@@ -2,7 +2,7 @@
 
 require_once BASE_PATH . '/app/Core/Controller.php';
 
-class HomeController extends Controller
+class AboutController extends Controller
 {
     public function index()
     {
@@ -34,7 +34,7 @@ class HomeController extends Controller
 ]
         ];
 
-        $this->view('home/index', $data);
+        $this->view('about/index', $data);
     }
 
     public function about()
