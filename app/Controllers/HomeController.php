@@ -1,42 +1,26 @@
 <?php
 
 require_once BASE_PATH . '/app/Core/Controller.php';
+require_once BASE_PATH . '/app/Models/M_prodi.php';
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-         $data = [
+ 
+public function index(){
+
+    
+    $model = new M_prodi();
+    
+    $data = [
             'title' => 'Home',
             'message' => 'Selamat datang di Mini MVC',
-            'berita' => [
-                
-[
-    'judul' => 'Mahasiswa ITB Kembangkan AI Bantu Industri Migas Hemat Jutaan Dolar dan Ambil Keputusan Lebih CepatUtama',
-    'image' => 'kegiatan1.webp',
-    'tag' => 'utama'
-],
-[
-    'judul'=> 'Penentuan 1 Syawal 1447 H, Observatorium Bosscha ITB Sampaikan Informasi Astronomis',
-    'image' => 'kegiatan2.webp',
-    'tag' => 'utama'
-],
-[
-    'judul' => 'Maha Gotra Ganesha ITB: Merawat Budaya Bali di Kampus',
-    'image' => 'kegiatan3.webp',
-    'tag' => 'baru'
-],
-[
-    'judul' => 'Kolaborasi Herbarium Bandungense SITH ITB dan Tim Peneliti Ungkap Spesies Baru Homalomena bungamerah dari Sumatra',
-    'image' => 'kegiatan1.webp',
-    'tag' => 'baru'
-    ]
-]
+            'events' => $model->getAll()
         ];
-
         $this->view('home/index', $data);
-    }
+    
+            }
 
+    
     public function about()
     {
         $data = [
